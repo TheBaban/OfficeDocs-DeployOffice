@@ -144,9 +144,9 @@ To begin, assess which devices have Office 2016 or Office 2019 installed and the
 ### Upgrade methods
 
 There are several methods to upgrade from Office 2016 or Office 2019 to Microsoft 365 Apps:
-
+This methods also works to upgrade from any previous version of Office to M365Apps. Meaning you can use it to transition from Office 2021 or Office LTSC to M365Apps
 - Use Group Policy or Intune CSP settings
-
+Works only to transition from a previous C2R version of Office to M365Apps. if you use Office 2016 MSI you need to use the second method.
   You can configure Group Policy or Intune Configuration Service Provider (CSP) settings to upgrade Office 2019 to Microsoft 365 Apps for enterprise without deploying a separate installation package. This method uses the existing Office installation and updates it to Microsoft 365 Apps.
 
   - Enable the Group Policy setting *Upgrade Office 2019 to Microsoft 365 Apps for enterprise* located at:
@@ -176,9 +176,9 @@ There are several methods to upgrade from Office 2016 or Office 2019 to Microsof
 
 - Deploy an upgrade package
 
-  Use the Office Deployment Tool to create an installation package that upgrades Office 2016 or Office 2019 to Microsoft 365 Apps.
+    Use the Office Deployment Tool to create an installation package that upgrades previous version of Office (2016/2019/2021/LTSC) to Microsoft 365 Apps.
 
-  - Configure the Office Deployment Tool to remove existing Microsoft Installer (MSI) versions of Office during the upgrade by setting the *RemoveMSI* element in your configuration XML file.
+  - Configure the Office Deployment Tool to remove existing Microsoft Installer (MSI) versions of Office during the upgrade by setting the *RemoveMSI* element in your configuration XML file. If you want to upgrade from 32 bit version of Office to 64 version, you will need to add ```<Remove All="TRUE" />``` in the XML.
   - Deploy the installation package using your software distribution solution, such as Configuration Manager.
 
   Example configuration XML:
